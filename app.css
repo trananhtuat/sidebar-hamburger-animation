@@ -1,0 +1,90 @@
+:root {
+    --bg-body: #4d4c5a;
+    --bg-main: #141529;
+    --bg-second: #79788c;
+    --bg-hover: #323048;
+    --bg-text: #f8fbff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--bg-body);
+    padding: 100px 100px 0;
+    font-family: cursive;
+    position: relative;
+}
+
+.nav {
+    display: inline-block;
+    list-style-type: none;
+    position: relative;
+}
+
+.nav li {
+    height: 50px;
+    width: 250px;
+    overflow: hidden;
+    /* border: 1px solid lightsteelblue; */
+    background-color: var(--bg-main);
+    transform-origin: 0 0;
+    transition: transform 0.6s ease;
+    transition-delay: var(--delay-open);
+    /* transform-origin: 0 0; */
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--bg-text);
+    font-size: 17px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-closed a {
+    color: var(--bg-main);
+}
+
+.nav a:hover {
+    background-color: var(--bg-hover);
+}
+
+.nav-closed li {
+    transform: translateY(calc(var(--top) * -1px)) scaleY(0.1) scaleX(0.2);
+    transition-delay: var(--delay-close);
+}
+
+.nav-toggle {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    /* opacity: 0; */
+    cursor: pointer;
+    transform-origin: 0 0;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    right: 0;
+    transition: right 1s ease, opacity 1s ease;
+    opacity: 1;
+    background-color: var(--bg-main);
+    color: var(--bg-text);
+}
+
+.nav-toggle:hover {
+    background-color: var(--bg-hover);
+}
+
+.nav-closed .nav-toggle {
+    right: calc(100% - 50px);
+    opacity: 0;
+}
